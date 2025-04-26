@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.ebsolutions.shells</groupId>
-    <artifactId>springboot-parent</artifactId>
+    <groupId>com.ebsolutions.projects.java</groupId>
+    <artifactId>generics-parent</artifactId>
     <version>${revision}</version>
-    <name>Shell Spring Boot Service Parent</name>
+    <name>Generics Service Parent</name>
     <packaging>pom</packaging>
 
     <modules>
@@ -180,7 +180,7 @@
                     <artifactId>openapi-generator-maven-plugin</artifactId>
                     <version>${openapi-generator-maven-plugin.version}</version>
                     <configuration>
-                        <modelPackage>com.ebsolutions.shells.springboot.model</modelPackage>
+                        <modelPackage>com.ebsolutions.projects.java.generics.model</modelPackage>
                         <generatorName>spring</generatorName>
                         <generateApis>false</generateApis>
                         <generateSupportingFiles>false</generateSupportingFiles>

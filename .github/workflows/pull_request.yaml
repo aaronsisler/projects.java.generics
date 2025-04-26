@@ -24,9 +24,3 @@ jobs:
 
       - name: Build Docker image
         run: docker build . --tag springboot-service --file app/Dockerfile
-
-#      - name: SonarQubeScan
-#        uses: SonarSource/sonarqube-scan-action@v4
-#        env:
-#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
