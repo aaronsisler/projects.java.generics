@@ -16,9 +16,6 @@ spring:
     activate:
       on-profile: local
 
-server:
-  port: 8081
-
 ---
 spring:
   config:
