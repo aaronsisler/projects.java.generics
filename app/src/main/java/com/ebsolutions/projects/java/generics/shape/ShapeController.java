@@ -18,19 +18,9 @@ public class ShapeController {
 
   @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<?> post(@Valid @RequestBody ShapeRequest shapeRequest) {
-
-    return ResponseEntity.ok(shapeRequest);
-  }
-
-  private void genericMethod() {
-    // I have to define the type out here
-    // How can we make that dynamic...
-    Box<Integer> integerBox = new Box<>();
-    integerBox.setContent(10);
-    int value = integerBox.getContent(); // No casting needed
-
-    Box<String> stringBox = new Box<>();
-    stringBox.setContent("Hello");
-    String text = stringBox.getContent(); // No casting needed
+    return switch (shapeRequest.getShape()) {
+      case AllowedShapes.CIRCLE -> ResponseEntity.ok(Circle.builder().build());
+      case AllowedShapes.SQUARE -> ResponseEntity.ok(Square.builder().build());
+    };
   }
 }
