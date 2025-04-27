@@ -1,11 +1,10 @@
 package com.ebsolutions.projects.java.generics.shape;
 
-import lombok.Builder;
 import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
 @Getter
-@Builder
+@SuperBuilder
 public class Circle extends Shape {
-  private final Integer value = 1;
 }
 

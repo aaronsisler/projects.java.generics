@@ -18,9 +18,8 @@ public class ShapeController {
 
   @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<?> post(@Valid @RequestBody ShapeRequest shapeRequest) {
-    return switch (shapeRequest.getShape()) {
-      case AllowedShapes.CIRCLE -> ResponseEntity.ok(Circle.builder().build());
-      case AllowedShapes.SQUARE -> ResponseEntity.ok(Square.builder().build());
-    };
+    Shape shape = Shape.create(shapeRequest.getShape(), shapeRequest.getArea());
+
+    return ResponseEntity.ok(shape);
   }
 }

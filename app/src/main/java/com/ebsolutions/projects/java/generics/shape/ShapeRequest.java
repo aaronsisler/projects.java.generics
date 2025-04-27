@@ -11,4 +11,5 @@ import lombok.ToString;
 @ToString
 public class ShapeRequest {
   private AllowedShapes shape;
+  private Integer area;
 }

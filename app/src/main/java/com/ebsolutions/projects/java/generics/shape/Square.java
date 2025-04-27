@@ -1,10 +1,9 @@
 package com.ebsolutions.projects.java.generics.shape;
 
-import lombok.Builder;
 import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
 @Getter
-@Builder
+@SuperBuilder
 public class Square extends Shape {
-  private final Integer value = 2;
 }
