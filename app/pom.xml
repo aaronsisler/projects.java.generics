@@ -3,18 +3,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.ebsolutions.shells</groupId>
-        <artifactId>springboot-parent</artifactId>
+        <groupId>com.ebsolutions.projects.java</groupId>
+    <artifactId>generics-parent</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>springboot-service</artifactId>
+    <artifactId>generics-service</artifactId>
     <version>${revision}</version>
-    <name>Shell Spring Boot Service</name>
+    <name>Generics Service</name>
     <packaging>jar</packaging>
 
     <properties>
-        <start-class>com.ebsolutions.shells.springboot.Application</start-class>
+        <start-class>com.ebsolutions.projects.java.generics.Application</start-class>
 
         <!-- Versions: Dependencies -->
     </properties>
@@ -142,17 +142,6 @@
             <plugin>
                 <groupId>org.openapitools</groupId>
                 <artifactId>openapi-generator-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>models-common</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <inputSpec>${project.parent.basedir}/contracts/inbound/common.yaml</inputSpec>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <!-- By default, surefire is running so setting skipTests to true -->
             <!-- We want to run tests during integration-test phase using failsafe plugin -->

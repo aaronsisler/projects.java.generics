@@ -1,4 +1,4 @@
-package com.ebsolutions.shells.springboot;
+package com.ebsolutions.projects.java.generics;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
