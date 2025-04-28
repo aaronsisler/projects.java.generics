@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.ebsolutions.projects.java</groupId>
-    <artifactId>generics-parent</artifactId>
+        <artifactId>generics-parent</artifactId>
         <version>${revision}</version>
     </parent>
 
@@ -17,6 +17,7 @@
         <start-class>com.ebsolutions.projects.java.generics.Application</start-class>
 
         <!-- Versions: Dependencies -->
+        <opencsv.version>5.10</opencsv.version>
     </properties>
 
     <dependencies>
@@ -74,6 +75,14 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- Used for parsing the incoming CSV file -->
+        <!-- Version: Explicit -->
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>${opencsv.version}</version>
         </dependency>
 
         <!-- Testing framework for starting Spring context and MockMVC -->

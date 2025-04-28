@@ -8,7 +8,7 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @SuperBuilder
 public abstract class Shape {
-  protected Integer area = 0;
+  protected Integer area;
   protected AllowedShapes shape;
 
   public static Shape create(AllowedShapes allowedShapes, Integer area) {

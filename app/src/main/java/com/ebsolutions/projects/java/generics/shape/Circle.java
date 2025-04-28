@@ -6,5 +6,6 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @SuperBuilder
 public class Circle extends Shape {
+  protected final Integer area;
 }
 
