@@ -1,4 +1,4 @@
-package com.ebsolutions.projects.java.generics.cardtype;
+package com.ebsolutions.projects.java.generics.accounttransaction.model;
 
 import com.opencsv.bean.CsvBindByPosition;
 import jakarta.validation.constraints.NotBlank;

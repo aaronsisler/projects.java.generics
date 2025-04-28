@@ -1,4 +1,4 @@
-package com.ebsolutions.projects.java.generics.cardtype;
+package com.ebsolutions.projects.java.generics.accounttransaction;
 
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;

@@ -1,4 +1,4 @@
-package com.ebsolutions.projects.java.generics.cardtype;
+package com.ebsolutions.projects.java.generics.accounttransaction.model;
 
 import lombok.ToString;
 

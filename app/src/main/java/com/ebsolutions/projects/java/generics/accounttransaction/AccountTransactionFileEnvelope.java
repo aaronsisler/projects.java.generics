@@ -1,4 +1,4 @@
-package com.ebsolutions.projects.java.generics.cardtype;
+package com.ebsolutions.projects.java.generics.accounttransaction;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
