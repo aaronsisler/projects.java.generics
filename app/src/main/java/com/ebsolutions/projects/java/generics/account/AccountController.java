@@ -15,10 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 @RequestMapping("accounts")
 public class AccountController {
+  private final AccountFileReaderService accountFileReaderService;
 
   @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<?> post(@Valid @ModelAttribute AccountRequest accountRequest) {
 
-    return ResponseEntity.ok().build();
+    try {
+
+      accountFileReaderService.process(accountRequest);
+      return ResponseEntity.ok().build();
+
+    } catch (Exception e) {
+      return ResponseEntity.internalServerError().body(e);
+    }
   }
 }

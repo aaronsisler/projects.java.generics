@@ -5,7 +5,7 @@ import com.opencsv.bean.CsvToBeanBuilder;
 import java.io.Reader;
 import java.util.List;
 
-public class AccountService<T> {
+public class AccountCsvService<T> {
 
   public List<T> processFile(Reader reader, Class<T> clazz) {
     CsvToBean<T> cb;
