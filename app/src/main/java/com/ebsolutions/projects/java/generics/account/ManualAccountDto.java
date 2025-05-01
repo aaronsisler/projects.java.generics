@@ -9,15 +9,15 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ManualAccountDto {
-  protected Integer rowId;
+public class ManualAccountDto extends AccountDto {
+  private Integer rowId;
   @NotBlank(message = "Amount cannot be blank")
-  @CsvBindByPosition(position = 4)
-  protected String amount;
+  @CsvBindByPosition(position = 0)
+  private String amount;
   @NotBlank(message = "Description cannot be blank")
   @CsvBindByPosition(position = 1)
-  protected String description;
+  private String description;
   @NotBlank(message = "Transaction date cannot be blank")
-  @CsvBindByPosition(position = 0)
-  protected String transactionDate;
+  @CsvBindByPosition(position = 2)
+  private String transactionDate;
 }

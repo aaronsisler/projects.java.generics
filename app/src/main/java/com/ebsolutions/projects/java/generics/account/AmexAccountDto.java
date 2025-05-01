@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class AmexAccountDto {
+public class AmexAccountDto extends AccountDto {
   protected Integer rowId;
   @NotBlank(message = "Amount cannot be blank")
   @CsvBindByPosition(position = 4)
