@@ -6,10 +6,11 @@ import java.io.Reader;
 import java.util.List;
 
 public class AccountFileReaderService<T> {
-  private final Class<T> type;
 
-  public AccountFileReaderService(Class<T> type) {
-    this.type = type;
+  private final Class<T> clazz;
+
+  public AccountFileReaderService(Class<T> clazz) {
+    this.clazz = clazz;
   }
 
   public List<T> process(AccountRequest accountRequest) throws Exception {
@@ -21,14 +22,11 @@ public class AccountFileReaderService<T> {
       throw new Exception("File cannot be empty");
     }
 
-    // Parse the CSV and create a DTO for each row
     try (Reader reader = new InputStreamReader(accountRequest.getFile().getInputStream())) {
-
       AccountCsvService<T> accountCsvService = new AccountCsvService<>();
-
-      return accountCsvService.processFile(reader, type);
+      return accountCsvService.processFile(reader, clazz);
     } catch (IOException e) {
-      throw new Exception("File was not able to be parsed");
+      throw new Exception("File was not able to be parsed", e);
     }
   }
 }

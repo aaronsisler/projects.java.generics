@@ -17,23 +17,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("accounts")
 public class AccountController {
 
+  private final AccountFileReaderFactory accountFileReaderFactory;
+
   @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<?> post(@Valid @ModelAttribute AccountRequest accountRequest) {
 
     try {
+      AccountFileReaderService<?> readerService =
+          accountFileReaderFactory.getAccountFileReaderService(accountRequest.getCardType());
 
-      if (CardType.AMEX.equals(accountRequest.getCardType())) {
-        AccountFileReaderService<AmexAccountDto> accountFileReaderService =
-            new AccountFileReaderService<>(
-                AmexAccountDto.class);
-        List<AmexAccountDto> amexAccountDtos = accountFileReaderService.process(accountRequest);
-        return ResponseEntity.ok(amexAccountDtos);
-      }
-
-      return ResponseEntity.ok().build();
+      List<?> result = readerService.process(accountRequest);
+      return ResponseEntity.ok(result);
 
     } catch (Exception e) {
-      return ResponseEntity.internalServerError().body(e);
+      return ResponseEntity.internalServerError().body(e.getMessage());
     }
   }
 }
