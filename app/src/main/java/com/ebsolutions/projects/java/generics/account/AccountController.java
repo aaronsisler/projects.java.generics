@@ -24,7 +24,7 @@ public class AccountController {
 
     try {
       AccountFileReaderService<?> readerService =
-          accountFileReaderFactory.getAccountFileReaderService(accountRequest.getCardType());
+          accountFileReaderFactory.create(accountRequest.getCardType());
 
       List<?> result = readerService.process(accountRequest);
       return ResponseEntity.ok(result);

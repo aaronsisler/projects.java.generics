@@ -1,10 +1,8 @@
 package com.ebsolutions.projects.java.generics.account;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 @Getter
-@RequiredArgsConstructor
 public enum CardType {
   AMEX(AmexAccountDto.class),
   MANUAL(ManualAccountDto.class),
@@ -12,4 +10,8 @@ public enum CardType {
   ;
 
   private final Class<?> dtoClass;
+
+  CardType(Class<?> dtoClass) {
+    this.dtoClass = dtoClass;
+  }
 }

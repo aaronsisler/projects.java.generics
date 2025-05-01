@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class AccountFileReaderFactory {
 
-  public AccountFileReaderService<?> getAccountFileReaderService(CardType cardType) {
+  public AccountFileReaderService<?> create(CardType cardType) {
     if (cardType == null || cardType.getDtoClass() == null) {
       throw new IllegalArgumentException("Invalid or unsupported card type: " + cardType);
     }
