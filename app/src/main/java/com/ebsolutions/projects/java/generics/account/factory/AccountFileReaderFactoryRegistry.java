@@ -1,8 +1,7 @@
-package com.ebsolutions.projects.java.generics.account;
+package com.ebsolutions.projects.java.generics.account.factory;
 
+import com.ebsolutions.projects.java.generics.account.SupportedInstitution;
 import com.ebsolutions.projects.java.generics.account.dto.AccountDto;
-import com.ebsolutions.projects.java.generics.account.factory.AmexAccountFileReaderFactory;
-import com.ebsolutions.projects.java.generics.account.factory.ManualAccountFileReaderFactory;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;

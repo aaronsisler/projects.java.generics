@@ -1,9 +1,10 @@
 package com.ebsolutions.projects.java.generics.account.factory;
 
-import com.ebsolutions.projects.java.generics.account.AccountFileReaderFactory;
 import com.ebsolutions.projects.java.generics.account.SupportedInstitution;
 import com.ebsolutions.projects.java.generics.account.dto.AmexAccountDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class AmexAccountFileReaderFactory extends AccountFileReaderFactory<AmexAccountDto> {
 
   @Override
