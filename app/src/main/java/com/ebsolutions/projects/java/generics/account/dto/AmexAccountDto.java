@@ -1,4 +1,4 @@
-package com.ebsolutions.projects.java.generics.account;
+package com.ebsolutions.projects.java.generics.account.dto;
 
 import com.opencsv.bean.CsvBindByPosition;
 import jakarta.validation.constraints.NotBlank;

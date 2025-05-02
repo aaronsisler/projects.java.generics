@@ -1,15 +1,16 @@
 package com.ebsolutions.projects.java.generics.account;
 
-import org.springframework.stereotype.Component;
+import com.ebsolutions.projects.java.generics.account.dto.AccountDto;
 
-@Component
-public class AccountFileReaderFactory {
+public abstract class AccountFileReaderFactory<T extends AccountDto> {
 
-  public AccountFileReaderService<?> create(CardType cardType) {
-    if (cardType == null || cardType.getDtoClass() == null) {
-      throw new IllegalArgumentException("Invalid or unsupported card type: " + cardType);
+  public AccountFileReaderService<T> create(SupportedInstitution supportedInstitution) {
+    if (supportedInstitution == null || supportedInstitution.getDtoClass() == null) {
+      throw new IllegalArgumentException(
+          "Invalid or unsupported card type: " + supportedInstitution);
     }
-
-    return new AccountFileReaderService<>(cardType.getDtoClass());
+    return new AccountFileReaderService<>(getDtoClass(supportedInstitution));
   }
+
+  protected abstract Class<T> getDtoClass(SupportedInstitution supportedInstitution);
 }

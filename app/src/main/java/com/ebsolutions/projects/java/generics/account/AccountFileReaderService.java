@@ -1,11 +1,12 @@
 package com.ebsolutions.projects.java.generics.account;
 
+import com.ebsolutions.projects.java.generics.account.dto.AccountDto;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.List;
 
-public class AccountFileReaderService<T> {
+public class AccountFileReaderService<T extends AccountDto> {
 
   private final Class<T> clazz;
 

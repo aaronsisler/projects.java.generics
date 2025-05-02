@@ -1,5 +1,6 @@
 package com.ebsolutions.projects.java.generics.account;
 
+import com.ebsolutions.projects.java.generics.account.dto.AccountDto;
 import jakarta.validation.Valid;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -9,6 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Validated
@@ -17,20 +19,37 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("accounts")
 public class AccountController {
 
-  private final AccountFileReaderFactory accountFileReaderFactory;
+  private final AccountFileReaderFactoryRegistry factoryRegistry;
+
 
   @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<?> post(@Valid @ModelAttribute AccountRequest accountRequest) {
 
     try {
-      AccountFileReaderService<?> readerService =
-          accountFileReaderFactory.create(accountRequest.getCardType());
+      AccountFileReaderFactory<? extends AccountDto> factory =
+          factoryRegistry.getFactory(accountRequest.getSupportedInstitution());
 
-      List<?> result = readerService.process(accountRequest);
+      AccountFileReaderService<? extends AccountDto> readerService =
+          factory.create(accountRequest.getSupportedInstitution());
+      List<? extends AccountDto> result = readerService.process(accountRequest);
+
       return ResponseEntity.ok(result);
 
     } catch (Exception e) {
       return ResponseEntity.internalServerError().body(e.getMessage());
     }
+  }
+
+  public ResponseEntity<List<? extends AccountDto>> processFile(
+      @RequestParam("institution") SupportedInstitution institution,
+      @ModelAttribute AccountRequest accountRequest
+  ) throws Exception {
+
+    AccountFileReaderFactory<? extends AccountDto> factory =
+        factoryRegistry.getFactory(institution);
+    AccountFileReaderService<? extends AccountDto> readerService = factory.create(institution);
+    List<? extends AccountDto> result = readerService.process(accountRequest);
+
+    return ResponseEntity.ok(result);
   }
 }

@@ -1,4 +1,4 @@
-package com.ebsolutions.projects.java.generics.account;
+package com.ebsolutions.projects.java.generics.account.dto;
 
 public abstract class AccountDto {
   abstract Integer getRowId();

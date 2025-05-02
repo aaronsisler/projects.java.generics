@@ -9,6 +9,6 @@ import org.springframework.web.multipart.MultipartFile;
 @Setter
 @NoArgsConstructor
 public class AccountRequest {
-  private CardType cardType;
+  private SupportedInstitution supportedInstitution;
   private MultipartFile file;
 }
